@@ -137,6 +137,31 @@
   <main>
     <div class="typewriter-container">
       <h1 class="typewriter"></h1>
+    
+<div id="typewriter" class="typewriter"></div>
+
+<audio id="typeSound" src="typewriter-click.mp3" preload="auto"></audio>
+
+<script>
+  const text = "Unlock Your Elite Mindset";
+  const typewriter = document.getElementById('typewriter');
+  const typeSound = document.getElementById('typeSound');
+  let index = 0;
+
+  function type() {
+    if (index < text.length) {
+      typewriter.textContent += text.charAt(index);
+      typeSound.currentTime = 0;  // rewind sound
+      typeSound.play();
+      index++;
+      setTimeout(type, 100);  // delay between letters (100ms)
+    } else {
+      // typing done, you can loop or stop here
+    }
+  }
+
+  type();  // start typing on page load
+</script>
     </div>
 
     <p>Master the hidden arts of <strong>psychology, persuasion, and hypnosis</strong> — powerful tools to influence, lead, and dominate your world.</p>
